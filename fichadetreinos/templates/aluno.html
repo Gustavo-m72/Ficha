@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'cadastrostyle.css' %}">
+  
+    <title>Cadastrar Aluno</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Cadastrar Aluno</h1>
+        <a href="{% url 'cadastrarexercicio' %}">Cadastrar Exercicio</a>
+        <a href="{% url 'home' %}">Voltar</a>
+    </div>
+    <div class="container">
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <label for="nome">Nome do Aluno:</label>
+            <input type="text" id="nome" name="nome" required><br><br>
+            <label for="idade">Idade do Aluno:</label>
+            <input type="text" id="idade" name="idade" required><br><br>
+            <label for="peso">Peso do Aluno:</label>
+            <input type="text" id="peso" name="peso" required><br><br>
+            <label for="altura">Altura do Aluno:</label>
+            <input type="text" id="altura" name="altura" required><br><br>
+            <label for="senha">Senha do aluno</label>
+            <input type="password" id="senha" name="senha" required><br><br>
+            <label for="email">Email do aluno</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

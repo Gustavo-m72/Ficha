@@ -11,7 +11,7 @@
     <div class="header">
         
         <h1>Alunos cadastrados</h1>
-            <a href="">Cadastrar Aluno</a>
+            <a href="{% url 'aluno' %}">Cadastrar Aluno</a>
             <a href="{% url 'cadastrarexercicio' %}">Cadastrar Exercicio</a>
     </div>
     <div class="container">
@@ -21,7 +21,7 @@
                 <li>{{ aluno.nome }} - {{ aluno.idade }} anos
                     <div class="botoes">
                         <a href = "{% url 'cadastrartreino' aluno.id %}">Cadastrar Treino</a>
-                        <a href = "">Ver Treino</a>
+                        <a href = "{% url 'treino' aluno.id %}">Ver Treino</a>
                         <a href = "">Editar Aluno</a>
                     </div>
                 </li>
