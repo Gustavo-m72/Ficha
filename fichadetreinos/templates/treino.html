@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'homestyle.css' %}">
+    <title>Ficha de Treino</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Treinos de {{ aluno.nome }}</h1>
+    </div>
+    <div class="container">
+        <h2>Lista de Treinos</h2>
+        <ul>
+            {% for treino in treinos %}
+                <li>
+                    <strong>{{ treino.nome }}</strong> {{ treino.exercicio.nome }} - {{ treino.descricao }}<br>
+                    Ordem: {{ treino.ordem }} | Repetições: {{ treino.repeticoes }} | Séries: {{ treino.series }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

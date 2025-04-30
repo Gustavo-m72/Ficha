@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'homestyle.css' %}">
+    <title>Ficha de treino</title>
+</head>
+<body>
+    <div class="header">
+        
+        <h1>Alunos cadastrados</h1>
+            <a href="">Cadastrar Aluno</a>
+            <a href="{% url 'cadastrarexercicio' %}">Cadastrar Exercicio</a>
+    </div>
+    <div class="container">
+        <h2>Lista de Alunos</h2>
+        <ul>
+            {% for aluno in alunos %}
+                <li>{{ aluno.nome }} - {{ aluno.idade }} anos
+                    <div class="botoes">
+                        <a href = "{% url 'cadastrartreino' aluno.id %}">Cadastrar Treino</a>
+                        <a href = "">Ver Treino</a>
+                        <a href = "">Editar Aluno</a>
+                    </div>
+                </li>
+                
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
